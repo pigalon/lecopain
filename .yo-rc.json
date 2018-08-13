@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.pigalon.lecopain",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "5.1.0",
+    "applicationType": "monolith",
+    "baseName": "lecopain",
+    "packageName": "com.pigalon.lecopain",
+    "packageFolder": "com/pigalon/lecopain",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "b42b6e91eca7785b6b85e0a525f4a8a8fdae745c",
+    "clientFramework": "angularX",
+    "useSass": false,
+    "clientPackageManager": "yarn",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": [
+      "fr"
+    ]
+  }
+}

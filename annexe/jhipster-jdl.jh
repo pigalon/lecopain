@@ -1,0 +1,117 @@
+
+entity Location {
+	streetAddress String,
+	postalCode String,
+	city String,
+	country String
+}
+
+entity Product {
+	reference String,
+	description String,
+	price Double
+}
+
+entity Customer {
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String,
+	createDate Instant
+}
+
+entity Order {
+	reference String,
+	payDate Instant,
+	status OrderState,
+	promotion PromotionType
+}
+
+entity OrderLine {
+	reference String,
+	quantity Long,
+	price Double,
+	reduction Double,
+	status LineState
+}
+
+entity Subsc {
+	startDate Instant,
+	endDate Instant,
+	type SubType,
+	status SubscState
+}
+
+entity SubLine{
+	sReference String
+}
+
+entity OrderHistory{
+	actionDate Instant,
+	action OrderActionType,
+	reason String
+}
+
+entity ProductHistory{
+	actionDate Instant,
+	action ProductActionType,
+	reason String
+}
+entity SubHistory{
+	actionDate Instant,
+	action ProductActionType,
+	reason String
+}
+
+enum SubType {
+    SUB1, SUB2, SUB3
+}
+
+enum OrderState{
+	CREATED, PAID, DELIVERED, PLANNED
+}
+
+enum LineState{
+	LIN1, LIN2, LIN3
+}
+
+enum OrderActionType{
+	CREATE, UPDATE, CANCEL, PAY
+}
+
+enum ProductActionType{
+	CREATE, UPDATE, PRICE_CHANGE, UNAVAILABLE, AVAILABLE
+}
+
+enum PromotionType{
+	PROMO1, PROMO2, PROMO3
+}
+
+enum SubscState{
+	PAID, CREATED, ASKED, CANCELED
+}
+
+relationship OneToMany {
+	Customer{order} to Order,
+	Order{line} to OrderLine,
+	Subsc{line} to SubLine
+}
+
+relationship OneToOne {
+	OrderLine{product} to Product,
+	SubLine{order} to Order,
+	Customer{location} to Location,
+	OrderHistory{order} to Order,ProductHistory{product} to Product,
+    SubHistory{subscription} to Subsc
+}
+
+// Set pagination options
+paginate OrderHistory, ProductHistory, Customer, Subsc with infinite-scroll
+paginate Order with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Customer, Order
+// Set an angular suffix
+angularSuffix * with mySuffix
