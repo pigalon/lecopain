@@ -20,7 +20,7 @@ entity Customer {
 	createDate Instant
 }
 
-entity Order {
+entity OrderCust {
 	reference String,
 	payDate Instant,
 	status OrderState,
@@ -92,26 +92,26 @@ enum SubscState{
 }
 
 relationship OneToMany {
-	Customer{order} to Order,
-	Order{line} to OrderLine,
+	Customer{order} to OrderCust,
+	OrderCust{line} to OrderLine,
 	Subsc{line} to SubLine
 }
 
 relationship OneToOne {
 	OrderLine{product} to Product,
-	SubLine{order} to Order,
+	SubLine{order} to OrderCust,
 	Customer{location} to Location,
-	OrderHistory{order} to Order,ProductHistory{product} to Product,
+	OrderHistory{order} to OrderCust,ProductHistory{product} to Product,
     SubHistory{subscription} to Subsc
 }
 
 // Set pagination options
 paginate OrderHistory, ProductHistory, Customer, Subsc with infinite-scroll
-paginate Order with pagination
+paginate OrderCust with pagination
 
 dto * with mapstruct
 
 // Set service options to all except few
-service all with serviceImpl except Customer, Order
+service all with serviceImpl except Customer, OrderCust
 // Set an angular suffix
 angularSuffix * with mySuffix

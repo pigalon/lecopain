@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-subsc-my-suffix-heading" jhiTranslate="lecopainApp.subsc.home.createOrEditLabel">Create or edit a Subsc</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!subsc.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="subsc.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.subsc.startDate" for="field_startDate">Start Date</label>
+                    <div class="d-flex">
+                        <input id="field_startDate" type="datetime-local" class="form-control" name="startDate" [(ngModel)]="startDate"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.subsc.endDate" for="field_endDate">End Date</label>
+                    <div class="d-flex">
+                        <input id="field_endDate" type="datetime-local" class="form-control" name="endDate" [(ngModel)]="endDate"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.subsc.type" for="field_type">Type</label>
+                    <select class="form-control" name="type" [(ngModel)]="subsc.type" id="field_type" >
+                        <option value="SUB1">{{'lecopainApp.SubType.SUB1' | translate}}</option>
+                        <option value="SUB2">{{'lecopainApp.SubType.SUB2' | translate}}</option>
+                        <option value="SUB3">{{'lecopainApp.SubType.SUB3' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.subsc.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" [(ngModel)]="subsc.status" id="field_status" >
+                        <option value="PAID">{{'lecopainApp.SubscState.PAID' | translate}}</option>
+                        <option value="CREATED">{{'lecopainApp.SubscState.CREATED' | translate}}</option>
+                        <option value="ASKED">{{'lecopainApp.SubscState.ASKED' | translate}}</option>
+                        <option value="CANCELED">{{'lecopainApp.SubscState.CANCELED' | translate}}</option>
+                    </select>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

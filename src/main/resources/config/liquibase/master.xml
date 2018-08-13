@@ -5,6 +5,23 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194243_added_entity_Location.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194244_added_entity_Product.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194245_added_entity_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194246_added_entity_OrderCust.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194247_added_entity_OrderLine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194248_added_entity_Subsc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194249_added_entity_SubLine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194250_added_entity_OrderHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194251_added_entity_ProductHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194252_added_entity_SubHistory.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180813194245_added_entity_constraints_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194246_added_entity_constraints_OrderCust.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194247_added_entity_constraints_OrderLine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194249_added_entity_constraints_SubLine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194250_added_entity_constraints_OrderHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194251_added_entity_constraints_ProductHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180813194252_added_entity_constraints_SubHistory.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

@@ -38,6 +38,19 @@ public class CacheConfiguration {
             cm.createCache(com.pigalon.lecopain.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.pigalon.lecopain.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.pigalon.lecopain.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.pigalon.lecopain.domain.Location.class.getName(), jcacheConfiguration);
+            cm.createCache(com.pigalon.lecopain.domain.Product.class.getName(), jcacheConfiguration);
+            cm.createCache(com.pigalon.lecopain.domain.Customer.class.getName(), jcacheConfiguration);
+            cm.createCache(com.pigalon.lecopain.domain.Customer.class.getName() + ".orders", jcacheConfiguration);
+            cm.createCache(com.pigalon.lecopain.domain.OrderCust.class.getName(), jcacheConfiguration);
+            cm.createCache(com.pigalon.lecopain.domain.OrderCust.class.getName() + ".lines", jcacheConfiguration);
+            cm.createCache(com.pigalon.lecopain.domain.OrderLine.class.getName(), jcacheConfiguration);
+            cm.createCache(com.pigalon.lecopain.domain.Subsc.class.getName(), jcacheConfiguration);
+            cm.createCache(com.pigalon.lecopain.domain.Subsc.class.getName() + ".lines", jcacheConfiguration);
+            cm.createCache(com.pigalon.lecopain.domain.SubLine.class.getName(), jcacheConfiguration);
+            cm.createCache(com.pigalon.lecopain.domain.OrderHistory.class.getName(), jcacheConfiguration);
+            cm.createCache(com.pigalon.lecopain.domain.ProductHistory.class.getName(), jcacheConfiguration);
+            cm.createCache(com.pigalon.lecopain.domain.SubHistory.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

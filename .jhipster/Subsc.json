@@ -1,0 +1,41 @@
+{
+    "name": "Subsc",
+    "fields": [
+        {
+            "fieldName": "startDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "SubType",
+            "fieldValues": "SUB1,SUB2,SUB3"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "SubscState",
+            "fieldValues": "PAID,CREATED,ASKED,CANCELED"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "line",
+            "otherEntityName": "subLine",
+            "otherEntityRelationshipName": "subsc"
+        }
+    ],
+    "changelogDate": "20180813194248",
+    "entityTableName": "subsc",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

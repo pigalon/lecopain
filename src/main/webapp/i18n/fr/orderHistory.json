@@ -1,0 +1,25 @@
+
+{
+    "lecopainApp": {
+        "orderHistory" : {
+            "home": {
+                "title": "OrderHistories",
+                "createLabel": "Créer un nouveau Order History",
+                "createOrEditLabel": "Créer ou éditer un Order History"
+            },
+            "created": "Un nouveau Order History a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Order History avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Order History avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Order History {{ id }} ?"
+            },
+            "detail": {
+                "title": "Order History"
+            },
+            "actionDate": "Action Date",
+            "action": "Action",
+            "reason": "Reason",
+            "order": "Order"
+        }
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "name": "OrderLine",
+    "fields": [
+        {
+            "fieldName": "reference",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "reduction",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "LineState",
+            "fieldValues": "LIN1,LIN2,LIN3"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "orderCust",
+            "otherEntityName": "orderCust",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "product",
+            "otherEntityName": "product",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "orderLine"
+        }
+    ],
+    "changelogDate": "20180813194247",
+    "entityTableName": "order_line",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

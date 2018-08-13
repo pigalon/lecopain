@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-order-history-my-suffix-heading" jhiTranslate="lecopainApp.orderHistory.home.createOrEditLabel">Create or edit a Order History</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!orderHistory.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="orderHistory.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderHistory.actionDate" for="field_actionDate">Action Date</label>
+                    <div class="d-flex">
+                        <input id="field_actionDate" type="datetime-local" class="form-control" name="actionDate" [(ngModel)]="actionDate"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderHistory.action" for="field_action">Action</label>
+                    <select class="form-control" name="action" [(ngModel)]="orderHistory.action" id="field_action" >
+                        <option value="CREATE">{{'lecopainApp.OrderActionType.CREATE' | translate}}</option>
+                        <option value="UPDATE">{{'lecopainApp.OrderActionType.UPDATE' | translate}}</option>
+                        <option value="CANCEL">{{'lecopainApp.OrderActionType.CANCEL' | translate}}</option>
+                        <option value="PAY">{{'lecopainApp.OrderActionType.PAY' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderHistory.reason" for="field_reason">Reason</label>
+                    <input type="text" class="form-control" name="reason" id="field_reason"
+                        [(ngModel)]="orderHistory.reason" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderHistory.order" for="field_order">Order</label>
+                    <select class="form-control" id="field_order" name="order" [(ngModel)]="orderHistory.orderId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderCustOption.id" *ngFor="let orderCustOption of orders; trackBy: trackOrderCustById">{{orderCustOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

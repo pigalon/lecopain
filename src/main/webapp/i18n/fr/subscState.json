@@ -1,0 +1,11 @@
+{
+    "lecopainApp": {
+        "SubscState" : {
+            "null": "",
+            "PAID": "PAID",
+            "CREATED": "CREATED",
+            "ASKED": "ASKED",
+            "CANCELED": "CANCELED"
+        }
+    }
+}

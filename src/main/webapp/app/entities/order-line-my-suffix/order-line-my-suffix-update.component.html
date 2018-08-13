@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-order-line-my-suffix-heading" jhiTranslate="lecopainApp.orderLine.home.createOrEditLabel">Create or edit a Order Line</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!orderLine.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="orderLine.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderLine.reference" for="field_reference">Reference</label>
+                    <input type="text" class="form-control" name="reference" id="field_reference"
+                        [(ngModel)]="orderLine.reference" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderLine.quantity" for="field_quantity">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" id="field_quantity"
+                        [(ngModel)]="orderLine.quantity" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderLine.price" for="field_price">Price</label>
+                    <input type="number" class="form-control" name="price" id="field_price"
+                        [(ngModel)]="orderLine.price" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderLine.reduction" for="field_reduction">Reduction</label>
+                    <input type="number" class="form-control" name="reduction" id="field_reduction"
+                        [(ngModel)]="orderLine.reduction" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderLine.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" [(ngModel)]="orderLine.status" id="field_status" >
+                        <option value="LIN1">{{'lecopainApp.LineState.LIN1' | translate}}</option>
+                        <option value="LIN2">{{'lecopainApp.LineState.LIN2' | translate}}</option>
+                        <option value="LIN3">{{'lecopainApp.LineState.LIN3' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderLine.orderCust" for="field_orderCust">Order Cust</label>
+                    <select class="form-control" id="field_orderCust" name="orderCust" [(ngModel)]="orderLine.orderCustId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderCustOption.id" *ngFor="let orderCustOption of ordercusts; trackBy: trackOrderCustById">{{orderCustOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderLine.product" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" [(ngModel)]="orderLine.productId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productOption.id" *ngFor="let productOption of products; trackBy: trackProductById">{{productOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

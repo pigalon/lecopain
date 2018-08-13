@@ -1,0 +1,64 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lecopainApp.productHistory.home.title">Product Histories</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product-history-my-suffix" [routerLink]="['/product-history-my-suffix/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="lecopainApp.productHistory.home.createLabel">
+            Create new Product History
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="productHistories">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="actionDate"><span jhiTranslate="lecopainApp.productHistory.actionDate">Action Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="action"><span jhiTranslate="lecopainApp.productHistory.action">Action</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="reason"><span jhiTranslate="lecopainApp.productHistory.reason">Reason</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="productId"><span jhiTranslate="lecopainApp.productHistory.product">Product</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let productHistory of productHistories ;trackBy: trackId">
+                <td><a [routerLink]="['/product-history-my-suffix', productHistory.id, 'view' ]">{{productHistory.id}}</a></td>
+                <td>{{productHistory.actionDate | date:'medium'}}</td>
+                <td jhiTranslate="{{'lecopainApp.ProductActionType.' + productHistory.action}}">{{productHistory.action}}</td>
+                <td>{{productHistory.reason}}</td>
+                <td>
+                    <div *ngIf="productHistory.productId">
+                        <a [routerLink]="['../product-my-suffix', productHistory.productId , 'view' ]" >{{productHistory.productId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/product-history-my-suffix', productHistory.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/product-history-my-suffix', productHistory.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'product-history-my-suffix/'+ productHistory.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -7,6 +7,16 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entités",
+                "locationMySuffix": "Location",
+                "productMySuffix": "Product",
+                "customerMySuffix": "Customer",
+                "orderCustMySuffix": "Order Cust",
+                "orderLineMySuffix": "Order Line",
+                "subscMySuffix": "Subsc",
+                "subLineMySuffix": "Sub Line",
+                "orderHistoryMySuffix": "Order History",
+                "productHistoryMySuffix": "Product History",
+                "subHistoryMySuffix": "Sub History",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

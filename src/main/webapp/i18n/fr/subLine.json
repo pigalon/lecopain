@@ -1,0 +1,24 @@
+
+{
+    "lecopainApp": {
+        "subLine" : {
+            "home": {
+                "title": "SubLines",
+                "createLabel": "Créer un nouveau Sub Line",
+                "createOrEditLabel": "Créer ou éditer un Sub Line"
+            },
+            "created": "Un nouveau Sub Line a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Sub Line avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Sub Line avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Sub Line {{ id }} ?"
+            },
+            "detail": {
+                "title": "Sub Line"
+            },
+            "sReference": "S Reference",
+            "subsc": "Subsc",
+            "order": "Order"
+        }
+    }
+}

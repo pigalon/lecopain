@@ -1,0 +1,38 @@
+{
+    "name": "OrderHistory",
+    "fields": [
+        {
+            "fieldName": "actionDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "action",
+            "fieldType": "OrderActionType",
+            "fieldValues": "CREATE,UPDATE,CANCEL,PAY"
+        },
+        {
+            "fieldName": "reason",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "order",
+            "otherEntityName": "orderCust",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "orderHistory"
+        }
+    ],
+    "changelogDate": "20180813194250",
+    "entityTableName": "order_history",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

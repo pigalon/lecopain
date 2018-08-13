@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productHistory">
+            <h2><span jhiTranslate="lecopainApp.productHistory.detail.title">Product History</span> {{productHistory.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lecopainApp.productHistory.actionDate">Action Date</span></dt>
+                <dd>
+                    <span>{{productHistory.actionDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.productHistory.action">Action</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'lecopainApp.ProductActionType.' + productHistory.action}}">{{productHistory.action}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.productHistory.reason">Reason</span></dt>
+                <dd>
+                    <span>{{productHistory.reason}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.productHistory.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="productHistory.productId">
+                        <a [routerLink]="['/product-my-suffix', productHistory.productId, 'view']">{{productHistory.productId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-history-my-suffix', productHistory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

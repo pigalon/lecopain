@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-order-cust-my-suffix-heading" jhiTranslate="lecopainApp.orderCust.home.createOrEditLabel">Create or edit a Order Cust</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!orderCust.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="orderCust.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderCust.reference" for="field_reference">Reference</label>
+                    <input type="text" class="form-control" name="reference" id="field_reference"
+                        [(ngModel)]="orderCust.reference" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderCust.payDate" for="field_payDate">Pay Date</label>
+                    <div class="d-flex">
+                        <input id="field_payDate" type="datetime-local" class="form-control" name="payDate" [(ngModel)]="payDate"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderCust.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" [(ngModel)]="orderCust.status" id="field_status" >
+                        <option value="CREATED">{{'lecopainApp.OrderState.CREATED' | translate}}</option>
+                        <option value="PAID">{{'lecopainApp.OrderState.PAID' | translate}}</option>
+                        <option value="DELIVERED">{{'lecopainApp.OrderState.DELIVERED' | translate}}</option>
+                        <option value="PLANNED">{{'lecopainApp.OrderState.PLANNED' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderCust.promotion" for="field_promotion">Promotion</label>
+                    <select class="form-control" name="promotion" [(ngModel)]="orderCust.promotion" id="field_promotion" >
+                        <option value="PROMO1">{{'lecopainApp.PromotionType.PROMO1' | translate}}</option>
+                        <option value="PROMO2">{{'lecopainApp.PromotionType.PROMO2' | translate}}</option>
+                        <option value="PROMO3">{{'lecopainApp.PromotionType.PROMO3' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderCust.customer" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" [(ngModel)]="orderCust.customerId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

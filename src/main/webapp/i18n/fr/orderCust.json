@@ -1,0 +1,27 @@
+
+{
+    "lecopainApp": {
+        "orderCust" : {
+            "home": {
+                "title": "OrderCusts",
+                "createLabel": "Créer un nouveau Order Cust",
+                "createOrEditLabel": "Créer ou éditer un Order Cust"
+            },
+            "created": "Un nouveau Order Cust a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Order Cust avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Order Cust avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Order Cust {{ id }} ?"
+            },
+            "detail": {
+                "title": "Order Cust"
+            },
+            "reference": "Reference",
+            "payDate": "Pay Date",
+            "status": "Status",
+            "promotion": "Promotion",
+            "customer": "Customer",
+            "line": "Line"
+        }
+    }
+}

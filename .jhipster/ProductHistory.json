@@ -1,0 +1,38 @@
+{
+    "name": "ProductHistory",
+    "fields": [
+        {
+            "fieldName": "actionDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "action",
+            "fieldType": "ProductActionType",
+            "fieldValues": "CREATE,UPDATE,PRICE_CHANGE,UNAVAILABLE,AVAILABLE"
+        },
+        {
+            "fieldName": "reason",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "product",
+            "otherEntityName": "product",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "productHistory"
+        }
+    ],
+    "changelogDate": "20180813194251",
+    "entityTableName": "product_history",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

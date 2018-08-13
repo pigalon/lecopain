@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subHistory">
+            <h2><span jhiTranslate="lecopainApp.subHistory.detail.title">Sub History</span> {{subHistory.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lecopainApp.subHistory.actionDate">Action Date</span></dt>
+                <dd>
+                    <span>{{subHistory.actionDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.subHistory.action">Action</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'lecopainApp.ProductActionType.' + subHistory.action}}">{{subHistory.action}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.subHistory.reason">Reason</span></dt>
+                <dd>
+                    <span>{{subHistory.reason}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.subHistory.subscription">Subscription</span></dt>
+                <dd>
+                    <div *ngIf="subHistory.subscriptionId">
+                        <a [routerLink]="['/subsc-my-suffix', subHistory.subscriptionId, 'view']">{{subHistory.subscriptionId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sub-history-my-suffix', subHistory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

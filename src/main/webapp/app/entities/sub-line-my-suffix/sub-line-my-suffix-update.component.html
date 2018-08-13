@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-sub-line-my-suffix-heading" jhiTranslate="lecopainApp.subLine.home.createOrEditLabel">Create or edit a Sub Line</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!subLine.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="subLine.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.subLine.sReference" for="field_sReference">S Reference</label>
+                    <input type="text" class="form-control" name="sReference" id="field_sReference"
+                        [(ngModel)]="subLine.sReference" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.subLine.subsc" for="field_subsc">Subsc</label>
+                    <select class="form-control" id="field_subsc" name="subsc" [(ngModel)]="subLine.subscId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="subscOption.id" *ngFor="let subscOption of subscs; trackBy: trackSubscById">{{subscOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.subLine.order" for="field_order">Order</label>
+                    <select class="form-control" id="field_order" name="order" [(ngModel)]="subLine.orderId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderCustOption.id" *ngFor="let orderCustOption of orders; trackBy: trackOrderCustById">{{orderCustOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

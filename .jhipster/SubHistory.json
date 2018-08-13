@@ -1,0 +1,38 @@
+{
+    "name": "SubHistory",
+    "fields": [
+        {
+            "fieldName": "actionDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "action",
+            "fieldType": "ProductActionType",
+            "fieldValues": "CREATE,UPDATE,PRICE_CHANGE,UNAVAILABLE,AVAILABLE"
+        },
+        {
+            "fieldName": "reason",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "subscription",
+            "otherEntityName": "subsc",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "subHistory"
+        }
+    ],
+    "changelogDate": "20180813194252",
+    "entityTableName": "sub_history",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

@@ -1,0 +1,66 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lecopainApp.subLine.home.title">Sub Lines</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sub-line-my-suffix" [routerLink]="['/sub-line-my-suffix/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="lecopainApp.subLine.home.createLabel">
+            Create new Sub Line
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="subLines">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="lecopainApp.subLine.sReference">S Reference</span></th>
+            <th><span jhiTranslate="lecopainApp.subLine.subsc">Subsc</span></th>
+            <th><span jhiTranslate="lecopainApp.subLine.order">Order</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let subLine of subLines ;trackBy: trackId">
+                <td><a [routerLink]="['/sub-line-my-suffix', subLine.id, 'view' ]">{{subLine.id}}</a></td>
+                <td>{{subLine.sReference}}</td>
+                <td>
+                    <div *ngIf="subLine.subscId">
+                        <a [routerLink]="['../subsc-my-suffix', subLine.subscId , 'view' ]" >{{subLine.subscId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="subLine.orderId">
+                        <a [routerLink]="['../order-cust-my-suffix', subLine.orderId , 'view' ]" >{{subLine.orderId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/sub-line-my-suffix', subLine.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/sub-line-my-suffix', subLine.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sub-line-my-suffix/'+ subLine.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

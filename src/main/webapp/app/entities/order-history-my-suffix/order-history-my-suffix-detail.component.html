@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderHistory">
+            <h2><span jhiTranslate="lecopainApp.orderHistory.detail.title">Order History</span> {{orderHistory.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lecopainApp.orderHistory.actionDate">Action Date</span></dt>
+                <dd>
+                    <span>{{orderHistory.actionDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.orderHistory.action">Action</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'lecopainApp.OrderActionType.' + orderHistory.action}}">{{orderHistory.action}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.orderHistory.reason">Reason</span></dt>
+                <dd>
+                    <span>{{orderHistory.reason}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.orderHistory.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="orderHistory.orderId">
+                        <a [routerLink]="['/order-cust-my-suffix', orderHistory.orderId, 'view']">{{orderHistory.orderId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-history-my-suffix', orderHistory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

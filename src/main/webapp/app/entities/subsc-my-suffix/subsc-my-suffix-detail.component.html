@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subsc">
+            <h2><span jhiTranslate="lecopainApp.subsc.detail.title">Subsc</span> {{subsc.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lecopainApp.subsc.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{subsc.startDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.subsc.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{subsc.endDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.subsc.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'lecopainApp.SubType.' + subsc.type}}">{{subsc.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.subsc.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'lecopainApp.SubscState.' + subsc.status}}">{{subsc.status}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/subsc-my-suffix', subsc.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

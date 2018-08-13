@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subLine">
+            <h2><span jhiTranslate="lecopainApp.subLine.detail.title">Sub Line</span> {{subLine.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lecopainApp.subLine.sReference">S Reference</span></dt>
+                <dd>
+                    <span>{{subLine.sReference}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.subLine.subsc">Subsc</span></dt>
+                <dd>
+                    <div *ngIf="subLine.subscId">
+                        <a [routerLink]="['/subsc-my-suffix', subLine.subscId, 'view']">{{subLine.subscId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.subLine.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="subLine.orderId">
+                        <a [routerLink]="['/order-cust-my-suffix', subLine.orderId, 'view']">{{subLine.orderId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sub-line-my-suffix', subLine.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
