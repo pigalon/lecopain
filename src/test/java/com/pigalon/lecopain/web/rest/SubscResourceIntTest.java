@@ -242,7 +242,7 @@ public class SubscResourceIntTest {
         // Create the Subsc
         SubscDTO subscDTO = subscMapper.toDto(subsc);
 
-        // If the entity doesn't have an ID, it will be created instead of just being updated
+        // If the entity doesn't have an ID, it will throw BadRequestAlertException 
         restSubscMockMvc.perform(put("/api/subscs")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(subscDTO)))

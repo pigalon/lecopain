@@ -25,10 +25,10 @@
                 <dd>
                     <span jhiTranslate="{{'lecopainApp.LineState.' + orderLine.status}}">{{orderLine.status}}</span>
                 </dd>
-                <dt><span jhiTranslate="lecopainApp.orderLine.orderCust">Order Cust</span></dt>
+                <dt><span jhiTranslate="lecopainApp.orderLine.orderMain">Order Main</span></dt>
                 <dd>
-                    <div *ngIf="orderLine.orderCustId">
-                        <a [routerLink]="['/order-cust-my-suffix', orderLine.orderCustId, 'view']">{{orderLine.orderCustId}}</a>
+                    <div *ngIf="orderLine.orderMainId">
+                        <a [routerLink]="['/order-main-my-suffix', orderLine.orderMainId, 'view']">{{orderLine.orderMainId}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="lecopainApp.orderLine.product">Product</span></dt>

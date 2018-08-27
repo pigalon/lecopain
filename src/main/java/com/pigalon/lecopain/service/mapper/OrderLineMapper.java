@@ -8,14 +8,14 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity OrderLine and its DTO OrderLineDTO.
  */
-@Mapper(componentModel = "spring", uses = {OrderCustMapper.class, ProductMapper.class})
+@Mapper(componentModel = "spring", uses = {OrderMainMapper.class, ProductMapper.class})
 public interface OrderLineMapper extends EntityMapper<OrderLineDTO, OrderLine> {
 
-    @Mapping(source = "orderCust.id", target = "orderCustId")
+    @Mapping(source = "orderMain.id", target = "orderMainId")
     @Mapping(source = "product.id", target = "productId")
     OrderLineDTO toDto(OrderLine orderLine);
 
-    @Mapping(source = "orderCustId", target = "orderCust")
+    @Mapping(source = "orderMainId", target = "orderMain")
     @Mapping(source = "productId", target = "product")
     OrderLine toEntity(OrderLineDTO orderLineDTO);
 

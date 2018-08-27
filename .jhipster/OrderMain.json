@@ -1,0 +1,55 @@
+{
+    "name": "OrderMain",
+    "fields": [
+        {
+            "fieldName": "reference",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "payDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "OrderState",
+            "fieldValues": "CREATED,PAID,DELIVERED,PLANNED"
+        },
+        {
+            "fieldName": "promotion",
+            "fieldType": "PromotionType",
+            "fieldValues": "PROMO1,PROMO2,PROMO3"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "customer",
+            "otherEntityName": "customer",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "delivery",
+            "otherEntityName": "delivery",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "orderMain"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "line",
+            "otherEntityName": "orderLine",
+            "otherEntityRelationshipName": "orderMain"
+        }
+    ],
+    "changelogDate": "20180819080158",
+    "entityTableName": "order_main",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

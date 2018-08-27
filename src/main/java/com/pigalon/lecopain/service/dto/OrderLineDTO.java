@@ -21,7 +21,7 @@ public class OrderLineDTO implements Serializable {
 
     private LineState status;
 
-    private Long orderCustId;
+    private Long orderMainId;
 
     private Long productId;
 
@@ -73,12 +73,12 @@ public class OrderLineDTO implements Serializable {
         this.status = status;
     }
 
-    public Long getOrderCustId() {
-        return orderCustId;
+    public Long getOrderMainId() {
+        return orderMainId;
     }
 
-    public void setOrderCustId(Long orderCustId) {
-        this.orderCustId = orderCustId;
+    public void setOrderMainId(Long orderMainId) {
+        this.orderMainId = orderMainId;
     }
 
     public Long getProductId() {
@@ -119,7 +119,7 @@ public class OrderLineDTO implements Serializable {
             ", price=" + getPrice() +
             ", reduction=" + getReduction() +
             ", status='" + getStatus() + "'" +
-            ", orderCust=" + getOrderCustId() +
+            ", orderMain=" + getOrderMainId() +
             ", product=" + getProductId() +
             "}";
     }

@@ -30,7 +30,7 @@
                 <td>{{orderHistory.reason}}</td>
                 <td>
                     <div *ngIf="orderHistory.orderId">
-                        <a [routerLink]="['../order-cust-my-suffix', orderHistory.orderId , 'view' ]" >{{orderHistory.orderId}}</a>
+                        <a [routerLink]="['../order-main-my-suffix', orderHistory.orderId , 'view' ]" >{{orderHistory.orderId}}</a>
                     </div>
                 </td>
                 <td class="text-right">

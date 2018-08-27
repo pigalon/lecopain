@@ -25,8 +25,8 @@
     ],
     "relationships": [
         {
-            "relationshipName": "orderCust",
-            "otherEntityName": "orderCust",
+            "relationshipName": "orderMain",
+            "otherEntityName": "orderMain",
             "relationshipType": "many-to-one",
             "otherEntityField": "id"
         },
@@ -39,7 +39,7 @@
             "otherEntityRelationshipName": "orderLine"
         }
     ],
-    "changelogDate": "20180813194247",
+    "changelogDate": "20180819080159",
     "entityTableName": "order_line",
     "dto": "mapstruct",
     "pagination": "no",

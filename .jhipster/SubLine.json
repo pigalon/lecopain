@@ -16,13 +16,13 @@
         {
             "relationshipType": "one-to-one",
             "relationshipName": "order",
-            "otherEntityName": "orderCust",
+            "otherEntityName": "orderMain",
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "subLine"
         }
     ],
-    "changelogDate": "20180813194249",
+    "changelogDate": "20180819080202",
     "entityTableName": "sub_line",
     "dto": "mapstruct",
     "pagination": "no",

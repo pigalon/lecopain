@@ -1,5 +1,5 @@
 import { Moment } from 'moment';
-import { IOrderCustMySuffix } from 'app/shared/model//order-cust-my-suffix.model';
+import { IOrderMainMySuffix } from 'app/shared/model//order-main-my-suffix.model';
 
 export interface ICustomerMySuffix {
     id?: number;
@@ -8,8 +8,11 @@ export interface ICustomerMySuffix {
     email?: string;
     phoneNumber?: string;
     createDate?: Moment;
-    locationId?: number;
-    orders?: IOrderCustMySuffix[];
+    streetAddress?: string;
+    postalCode?: string;
+    city?: string;
+    country?: string;
+    orders?: IOrderMainMySuffix[];
 }
 
 export class CustomerMySuffix implements ICustomerMySuffix {
@@ -20,7 +23,10 @@ export class CustomerMySuffix implements ICustomerMySuffix {
         public email?: string,
         public phoneNumber?: string,
         public createDate?: Moment,
-        public locationId?: number,
-        public orders?: IOrderCustMySuffix[]
+        public streetAddress?: string,
+        public postalCode?: string,
+        public city?: string,
+        public country?: string,
+        public orders?: IOrderMainMySuffix[]
     ) {}
 }

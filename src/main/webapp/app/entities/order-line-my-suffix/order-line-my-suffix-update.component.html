@@ -39,10 +39,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="lecopainApp.orderLine.orderCust" for="field_orderCust">Order Cust</label>
-                    <select class="form-control" id="field_orderCust" name="orderCust" [(ngModel)]="orderLine.orderCustId" >
+                    <label class="form-control-label" jhiTranslate="lecopainApp.orderLine.orderMain" for="field_orderMain">Order Main</label>
+                    <select class="form-control" id="field_orderMain" name="orderMain" [(ngModel)]="orderLine.orderMainId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="orderCustOption.id" *ngFor="let orderCustOption of ordercusts; trackBy: trackOrderCustById">{{orderCustOption.id}}</option>
+                        <option [ngValue]="orderMainOption.id" *ngFor="let orderMainOption of ordermains; trackBy: trackOrderMainById">{{orderMainOption.id}}</option>
                     </select>
                 </div>
                 <div class="form-group">

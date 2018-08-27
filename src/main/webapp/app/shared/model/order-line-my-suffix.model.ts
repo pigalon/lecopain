@@ -11,7 +11,7 @@ export interface IOrderLineMySuffix {
     price?: number;
     reduction?: number;
     status?: LineState;
-    orderCustId?: number;
+    orderMainId?: number;
     productId?: number;
 }
 
@@ -23,7 +23,7 @@ export class OrderLineMySuffix implements IOrderLineMySuffix {
         public price?: number,
         public reduction?: number,
         public status?: LineState,
-        public orderCustId?: number,
+        public orderMainId?: number,
         public productId?: number
     ) {}
 }

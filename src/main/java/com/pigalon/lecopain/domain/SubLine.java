@@ -33,7 +33,7 @@ public class SubLine implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private OrderCust order;
+    private OrderMain order;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -70,17 +70,17 @@ public class SubLine implements Serializable {
         this.subsc = subsc;
     }
 
-    public OrderCust getOrder() {
+    public OrderMain getOrder() {
         return order;
     }
 
-    public SubLine order(OrderCust orderCust) {
-        this.order = orderCust;
+    public SubLine order(OrderMain orderMain) {
+        this.order = orderMain;
         return this;
     }
 
-    public void setOrder(OrderCust orderCust) {
-        this.order = orderCust;
+    public void setOrder(OrderMain orderMain) {
+        this.order = orderMain;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

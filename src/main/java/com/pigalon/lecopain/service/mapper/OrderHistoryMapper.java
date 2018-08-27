@@ -8,7 +8,7 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity OrderHistory and its DTO OrderHistoryDTO.
  */
-@Mapper(componentModel = "spring", uses = {OrderCustMapper.class})
+@Mapper(componentModel = "spring", uses = {OrderMainMapper.class})
 public interface OrderHistoryMapper extends EntityMapper<OrderHistoryDTO, OrderHistory> {
 
     @Mapping(source = "order.id", target = "orderId")

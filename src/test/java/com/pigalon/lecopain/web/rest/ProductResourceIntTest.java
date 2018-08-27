@@ -229,7 +229,7 @@ public class ProductResourceIntTest {
         // Create the Product
         ProductDTO productDTO = productMapper.toDto(product);
 
-        // If the entity doesn't have an ID, it will be created instead of just being updated
+        // If the entity doesn't have an ID, it will throw BadRequestAlertException 
         restProductMockMvc.perform(put("/api/products")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(productDTO)))

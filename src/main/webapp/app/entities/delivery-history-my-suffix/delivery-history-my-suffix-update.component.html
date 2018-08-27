@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-delivery-history-my-suffix-heading" jhiTranslate="lecopainApp.deliveryHistory.home.createOrEditLabel">Create or edit a Delivery History</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!deliveryHistory.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="deliveryHistory.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.deliveryHistory.actionDate" for="field_actionDate">Action Date</label>
+                    <div class="d-flex">
+                        <input id="field_actionDate" type="datetime-local" class="form-control" name="actionDate" [(ngModel)]="actionDate"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.deliveryHistory.action" for="field_action">Action</label>
+                    <select class="form-control" name="action" [(ngModel)]="deliveryHistory.action" id="field_action" >
+                        <option value="CREATE">{{'lecopainApp.DeliveryActionType.CREATE' | translate}}</option>
+                        <option value="UPDATE">{{'lecopainApp.DeliveryActionType.UPDATE' | translate}}</option>
+                        <option value="PRICE_CHANGE">{{'lecopainApp.DeliveryActionType.PRICE_CHANGE' | translate}}</option>
+                        <option value="UNAVAILABLE">{{'lecopainApp.DeliveryActionType.UNAVAILABLE' | translate}}</option>
+                        <option value="AVAILABLE">{{'lecopainApp.DeliveryActionType.AVAILABLE' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.deliveryHistory.reason" for="field_reason">Reason</label>
+                    <input type="text" class="form-control" name="reason" id="field_reason"
+                        [(ngModel)]="deliveryHistory.reason" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lecopainApp.deliveryHistory.delivery" for="field_delivery">Delivery</label>
+                    <select class="form-control" id="field_delivery" name="delivery" [(ngModel)]="deliveryHistory.deliveryId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="deliveryOption.id" *ngFor="let deliveryOption of deliveries; trackBy: trackDeliveryById">{{deliveryOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

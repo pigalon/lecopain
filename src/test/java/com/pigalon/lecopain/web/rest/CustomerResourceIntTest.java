@@ -58,6 +58,18 @@ public class CustomerResourceIntTest {
     private static final Instant DEFAULT_CREATE_DATE = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_CREATE_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
+    private static final String DEFAULT_STREET_ADDRESS = "AAAAAAAAAA";
+    private static final String UPDATED_STREET_ADDRESS = "BBBBBBBBBB";
+
+    private static final String DEFAULT_POSTAL_CODE = "AAAAAAAAAA";
+    private static final String UPDATED_POSTAL_CODE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_CITY = "AAAAAAAAAA";
+    private static final String UPDATED_CITY = "BBBBBBBBBB";
+
+    private static final String DEFAULT_COUNTRY = "AAAAAAAAAA";
+    private static final String UPDATED_COUNTRY = "BBBBBBBBBB";
+
     @Autowired
     private CustomerRepository customerRepository;
 
@@ -104,7 +116,11 @@ public class CustomerResourceIntTest {
             .lastName(DEFAULT_LAST_NAME)
             .email(DEFAULT_EMAIL)
             .phoneNumber(DEFAULT_PHONE_NUMBER)
-            .createDate(DEFAULT_CREATE_DATE);
+            .createDate(DEFAULT_CREATE_DATE)
+            .streetAddress(DEFAULT_STREET_ADDRESS)
+            .postalCode(DEFAULT_POSTAL_CODE)
+            .city(DEFAULT_CITY)
+            .country(DEFAULT_COUNTRY);
         return customer;
     }
 
@@ -134,6 +150,10 @@ public class CustomerResourceIntTest {
         assertThat(testCustomer.getEmail()).isEqualTo(DEFAULT_EMAIL);
         assertThat(testCustomer.getPhoneNumber()).isEqualTo(DEFAULT_PHONE_NUMBER);
         assertThat(testCustomer.getCreateDate()).isEqualTo(DEFAULT_CREATE_DATE);
+        assertThat(testCustomer.getStreetAddress()).isEqualTo(DEFAULT_STREET_ADDRESS);
+        assertThat(testCustomer.getPostalCode()).isEqualTo(DEFAULT_POSTAL_CODE);
+        assertThat(testCustomer.getCity()).isEqualTo(DEFAULT_CITY);
+        assertThat(testCustomer.getCountry()).isEqualTo(DEFAULT_COUNTRY);
     }
 
     @Test
@@ -171,7 +191,11 @@ public class CustomerResourceIntTest {
             .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_LAST_NAME.toString())))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())))
             .andExpect(jsonPath("$.[*].phoneNumber").value(hasItem(DEFAULT_PHONE_NUMBER.toString())))
-            .andExpect(jsonPath("$.[*].createDate").value(hasItem(DEFAULT_CREATE_DATE.toString())));
+            .andExpect(jsonPath("$.[*].createDate").value(hasItem(DEFAULT_CREATE_DATE.toString())))
+            .andExpect(jsonPath("$.[*].streetAddress").value(hasItem(DEFAULT_STREET_ADDRESS.toString())))
+            .andExpect(jsonPath("$.[*].postalCode").value(hasItem(DEFAULT_POSTAL_CODE.toString())))
+            .andExpect(jsonPath("$.[*].city").value(hasItem(DEFAULT_CITY.toString())))
+            .andExpect(jsonPath("$.[*].country").value(hasItem(DEFAULT_COUNTRY.toString())));
     }
     
 
@@ -190,7 +214,11 @@ public class CustomerResourceIntTest {
             .andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME.toString()))
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()))
             .andExpect(jsonPath("$.phoneNumber").value(DEFAULT_PHONE_NUMBER.toString()))
-            .andExpect(jsonPath("$.createDate").value(DEFAULT_CREATE_DATE.toString()));
+            .andExpect(jsonPath("$.createDate").value(DEFAULT_CREATE_DATE.toString()))
+            .andExpect(jsonPath("$.streetAddress").value(DEFAULT_STREET_ADDRESS.toString()))
+            .andExpect(jsonPath("$.postalCode").value(DEFAULT_POSTAL_CODE.toString()))
+            .andExpect(jsonPath("$.city").value(DEFAULT_CITY.toString()))
+            .andExpect(jsonPath("$.country").value(DEFAULT_COUNTRY.toString()));
     }
     @Test
     @Transactional
@@ -217,7 +245,11 @@ public class CustomerResourceIntTest {
             .lastName(UPDATED_LAST_NAME)
             .email(UPDATED_EMAIL)
             .phoneNumber(UPDATED_PHONE_NUMBER)
-            .createDate(UPDATED_CREATE_DATE);
+            .createDate(UPDATED_CREATE_DATE)
+            .streetAddress(UPDATED_STREET_ADDRESS)
+            .postalCode(UPDATED_POSTAL_CODE)
+            .city(UPDATED_CITY)
+            .country(UPDATED_COUNTRY);
         CustomerDTO customerDTO = customerMapper.toDto(updatedCustomer);
 
         restCustomerMockMvc.perform(put("/api/customers")
@@ -234,6 +266,10 @@ public class CustomerResourceIntTest {
         assertThat(testCustomer.getEmail()).isEqualTo(UPDATED_EMAIL);
         assertThat(testCustomer.getPhoneNumber()).isEqualTo(UPDATED_PHONE_NUMBER);
         assertThat(testCustomer.getCreateDate()).isEqualTo(UPDATED_CREATE_DATE);
+        assertThat(testCustomer.getStreetAddress()).isEqualTo(UPDATED_STREET_ADDRESS);
+        assertThat(testCustomer.getPostalCode()).isEqualTo(UPDATED_POSTAL_CODE);
+        assertThat(testCustomer.getCity()).isEqualTo(UPDATED_CITY);
+        assertThat(testCustomer.getCountry()).isEqualTo(UPDATED_COUNTRY);
     }
 
     @Test
@@ -244,7 +280,7 @@ public class CustomerResourceIntTest {
         // Create the Customer
         CustomerDTO customerDTO = customerMapper.toDto(customer);
 
-        // If the entity doesn't have an ID, it will be created instead of just being updated
+        // If the entity doesn't have an ID, it will throw BadRequestAlertException 
         restCustomerMockMvc.perform(put("/api/customers")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(customerDTO)))

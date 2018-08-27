@@ -248,7 +248,7 @@ public class OrderLineResourceIntTest {
         // Create the OrderLine
         OrderLineDTO orderLineDTO = orderLineMapper.toDto(orderLine);
 
-        // If the entity doesn't have an ID, it will be created instead of just being updated
+        // If the entity doesn't have an ID, it will throw BadRequestAlertException 
         restOrderLineMockMvc.perform(put("/api/order-lines")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(orderLineDTO)))

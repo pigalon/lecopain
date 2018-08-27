@@ -232,7 +232,7 @@ public class ProductHistoryResourceIntTest {
         // Create the ProductHistory
         ProductHistoryDTO productHistoryDTO = productHistoryMapper.toDto(productHistory);
 
-        // If the entity doesn't have an ID, it will be created instead of just being updated
+        // If the entity doesn't have an ID, it will throw BadRequestAlertException 
         restProductHistoryMockMvc.perform(put("/api/product-histories")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(productHistoryDTO)))

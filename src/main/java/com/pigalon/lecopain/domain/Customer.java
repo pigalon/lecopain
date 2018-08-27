@@ -42,13 +42,21 @@ public class Customer implements Serializable {
     @Column(name = "create_date")
     private Instant createDate;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Location location;
+    @Column(name = "street_address")
+    private String streetAddress;
+
+    @Column(name = "postal_code")
+    private String postalCode;
+
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "country")
+    private String country;
 
     @OneToMany(mappedBy = "customer")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<OrderCust> orders = new HashSet<>();
+    private Set<OrderMain> orders = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -124,42 +132,81 @@ public class Customer implements Serializable {
         this.createDate = createDate;
     }
 
-    public Location getLocation() {
-        return location;
+    public String getStreetAddress() {
+        return streetAddress;
     }
 
-    public Customer location(Location location) {
-        this.location = location;
+    public Customer streetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
         return this;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
     }
 
-    public Set<OrderCust> getOrders() {
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public Customer postalCode(String postalCode) {
+        this.postalCode = postalCode;
+        return this;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public Customer city(String city) {
+        this.city = city;
+        return this;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public Customer country(String country) {
+        this.country = country;
+        return this;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public Set<OrderMain> getOrders() {
         return orders;
     }
 
-    public Customer orders(Set<OrderCust> orderCusts) {
-        this.orders = orderCusts;
+    public Customer orders(Set<OrderMain> orderMains) {
+        this.orders = orderMains;
         return this;
     }
 
-    public Customer addOrder(OrderCust orderCust) {
-        this.orders.add(orderCust);
-        orderCust.setCustomer(this);
+    public Customer addOrder(OrderMain orderMain) {
+        this.orders.add(orderMain);
+        orderMain.setCustomer(this);
         return this;
     }
 
-    public Customer removeOrder(OrderCust orderCust) {
-        this.orders.remove(orderCust);
-        orderCust.setCustomer(null);
+    public Customer removeOrder(OrderMain orderMain) {
+        this.orders.remove(orderMain);
+        orderMain.setCustomer(null);
         return this;
     }
 
-    public void setOrders(Set<OrderCust> orderCusts) {
-        this.orders = orderCusts;
+    public void setOrders(Set<OrderMain> orderMains) {
+        this.orders = orderMains;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -192,6 +239,10 @@ public class Customer implements Serializable {
             ", email='" + getEmail() + "'" +
             ", phoneNumber='" + getPhoneNumber() + "'" +
             ", createDate='" + getCreateDate() + "'" +
+            ", streetAddress='" + getStreetAddress() + "'" +
+            ", postalCode='" + getPostalCode() + "'" +
+            ", city='" + getCity() + "'" +
+            ", country='" + getCountry() + "'" +
             "}";
     }
 }

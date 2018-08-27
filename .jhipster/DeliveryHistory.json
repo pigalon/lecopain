@@ -1,0 +1,38 @@
+{
+    "name": "DeliveryHistory",
+    "fields": [
+        {
+            "fieldName": "actionDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "action",
+            "fieldType": "DeliveryActionType",
+            "fieldValues": "CREATE,UPDATE,PRICE_CHANGE,UNAVAILABLE,AVAILABLE"
+        },
+        {
+            "fieldName": "reason",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "delivery",
+            "otherEntityName": "delivery",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "deliveryHistory"
+        }
+    ],
+    "changelogDate": "20180819080206",
+    "entityTableName": "delivery_history",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

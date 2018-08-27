@@ -15,7 +15,7 @@
         }
     ],
     "relationships": [],
-    "changelogDate": "20180813194244",
+    "changelogDate": "20180819080156",
     "entityTableName": "product",
     "dto": "mapstruct",
     "pagination": "no",

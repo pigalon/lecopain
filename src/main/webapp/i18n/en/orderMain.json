@@ -1,0 +1,28 @@
+
+{
+    "lecopainApp": {
+        "orderMain" : {
+            "home": {
+                "title": "Order Mains",
+                "createLabel": "Create a new Order Main",
+                "createOrEditLabel": "Create or edit a Order Main"
+            },
+            "created": "A new Order Main is created with identifier {{ param }}",
+            "updated": "A Order Main is updated with identifier {{ param }}",
+            "deleted": "A Order Main is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Order Main {{ id }}?"
+            },
+            "detail": {
+                "title": "Order Main"
+            },
+            "reference": "Reference",
+            "payDate": "Pay Date",
+            "status": "Status",
+            "promotion": "Promotion",
+            "customer": "Customer",
+            "delivery": "Delivery",
+            "line": "Line"
+        }
+    }
+}

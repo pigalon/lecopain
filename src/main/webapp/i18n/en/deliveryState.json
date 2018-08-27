@@ -1,0 +1,11 @@
+{
+    "lecopainApp": {
+        "DeliveryState" : {
+            "null": "",
+            "CREATED": "CREATED",
+            "IN_PROGRESS": "IN_PROGRESS",
+            "CANCELED": "CANCELED",
+            "DELIVERED": "DELIVERED"
+        }
+    }
+}

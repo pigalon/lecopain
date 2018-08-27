@@ -8,8 +8,8 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { IOrderHistoryMySuffix } from 'app/shared/model/order-history-my-suffix.model';
 import { OrderHistoryMySuffixService } from './order-history-my-suffix.service';
-import { IOrderCustMySuffix } from 'app/shared/model/order-cust-my-suffix.model';
-import { OrderCustMySuffixService } from 'app/entities/order-cust-my-suffix';
+import { IOrderMainMySuffix } from 'app/shared/model/order-main-my-suffix.model';
+import { OrderMainMySuffixService } from 'app/entities/order-main-my-suffix';
 
 @Component({
     selector: 'jhi-order-history-my-suffix-update',
@@ -19,13 +19,13 @@ export class OrderHistoryMySuffixUpdateComponent implements OnInit {
     private _orderHistory: IOrderHistoryMySuffix;
     isSaving: boolean;
 
-    orders: IOrderCustMySuffix[];
+    orders: IOrderMainMySuffix[];
     actionDate: string;
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private orderHistoryService: OrderHistoryMySuffixService,
-        private orderCustService: OrderCustMySuffixService,
+        private orderMainService: OrderMainMySuffixService,
         private activatedRoute: ActivatedRoute
     ) {}
 
@@ -34,13 +34,13 @@ export class OrderHistoryMySuffixUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ orderHistory }) => {
             this.orderHistory = orderHistory;
         });
-        this.orderCustService.query({ filter: 'orderhistory-is-null' }).subscribe(
-            (res: HttpResponse<IOrderCustMySuffix[]>) => {
+        this.orderMainService.query({ filter: 'orderhistory-is-null' }).subscribe(
+            (res: HttpResponse<IOrderMainMySuffix[]>) => {
                 if (!this.orderHistory.orderId) {
                     this.orders = res.body;
                 } else {
-                    this.orderCustService.find(this.orderHistory.orderId).subscribe(
-                        (subRes: HttpResponse<IOrderCustMySuffix>) => {
+                    this.orderMainService.find(this.orderHistory.orderId).subscribe(
+                        (subRes: HttpResponse<IOrderMainMySuffix>) => {
                             this.orders = [subRes.body].concat(res.body);
                         },
                         (subRes: HttpErrorResponse) => this.onError(subRes.message)
@@ -85,7 +85,7 @@ export class OrderHistoryMySuffixUpdateComponent implements OnInit {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 
-    trackOrderCustById(index: number, item: IOrderCustMySuffix) {
+    trackOrderMainById(index: number, item: IOrderMainMySuffix) {
         return item.id;
     }
     get orderHistory() {

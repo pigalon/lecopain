@@ -1,0 +1,12 @@
+{
+    "lecopainApp": {
+        "DeliveryActionType" : {
+            "null": "",
+            "CREATE": "CREATE",
+            "UPDATE": "UPDATE",
+            "PRICE_CHANGE": "PRICE_CHANGE",
+            "UNAVAILABLE": "UNAVAILABLE",
+            "AVAILABLE": "AVAILABLE"
+        }
+    }
+}

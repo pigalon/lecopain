@@ -56,8 +56,8 @@ public class OrderHistoryDTO implements Serializable {
         return orderId;
     }
 
-    public void setOrderId(Long orderCustId) {
-        this.orderId = orderCustId;
+    public void setOrderId(Long orderMainId) {
+        this.orderId = orderMainId;
     }
 
     @Override

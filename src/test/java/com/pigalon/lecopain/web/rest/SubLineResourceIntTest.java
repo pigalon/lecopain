@@ -211,7 +211,7 @@ public class SubLineResourceIntTest {
         // Create the SubLine
         SubLineDTO subLineDTO = subLineMapper.toDto(subLine);
 
-        // If the entity doesn't have an ID, it will be created instead of just being updated
+        // If the entity doesn't have an ID, it will throw BadRequestAlertException 
         restSubLineMockMvc.perform(put("/api/sub-lines")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(subLineDTO)))

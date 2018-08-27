@@ -44,7 +44,7 @@ public class OrderLine implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties("lines")
-    private OrderCust orderCust;
+    private OrderMain orderMain;
 
     @OneToOne
     @JoinColumn(unique = true)
@@ -124,17 +124,17 @@ public class OrderLine implements Serializable {
         this.status = status;
     }
 
-    public OrderCust getOrderCust() {
-        return orderCust;
+    public OrderMain getOrderMain() {
+        return orderMain;
     }
 
-    public OrderLine orderCust(OrderCust orderCust) {
-        this.orderCust = orderCust;
+    public OrderLine orderMain(OrderMain orderMain) {
+        this.orderMain = orderMain;
         return this;
     }
 
-    public void setOrderCust(OrderCust orderCust) {
-        this.orderCust = orderCust;
+    public void setOrderMain(OrderMain orderMain) {
+        this.orderMain = orderMain;
     }
 
     public Product getProduct() {

@@ -35,7 +35,7 @@
                     <label class="form-control-label" jhiTranslate="lecopainApp.orderHistory.order" for="field_order">Order</label>
                     <select class="form-control" id="field_order" name="order" [(ngModel)]="orderHistory.orderId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="orderCustOption.id" *ngFor="let orderCustOption of orders; trackBy: trackOrderCustById">{{orderCustOption.id}}</option>
+                        <option [ngValue]="orderMainOption.id" *ngFor="let orderMainOption of orders; trackBy: trackOrderMainById">{{orderMainOption.id}}</option>
                     </select>
                 </div>
             </div>

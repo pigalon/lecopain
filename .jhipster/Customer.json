@@ -20,25 +20,33 @@
         {
             "fieldName": "createDate",
             "fieldType": "Instant"
+        },
+        {
+            "fieldName": "streetAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "postalCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "String"
         }
     ],
     "relationships": [
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "location",
-            "otherEntityName": "location",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "customer"
-        },
-        {
             "relationshipType": "one-to-many",
             "relationshipName": "order",
-            "otherEntityName": "orderCust",
+            "otherEntityName": "orderMain",
             "otherEntityRelationshipName": "customer"
         }
     ],
-    "changelogDate": "20180813194245",
+    "changelogDate": "20180819080157",
     "entityTableName": "customer",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

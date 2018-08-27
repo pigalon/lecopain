@@ -6,8 +6,8 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { IOrderLineMySuffix } from 'app/shared/model/order-line-my-suffix.model';
 import { OrderLineMySuffixService } from './order-line-my-suffix.service';
-import { IOrderCustMySuffix } from 'app/shared/model/order-cust-my-suffix.model';
-import { OrderCustMySuffixService } from 'app/entities/order-cust-my-suffix';
+import { IOrderMainMySuffix } from 'app/shared/model/order-main-my-suffix.model';
+import { OrderMainMySuffixService } from 'app/entities/order-main-my-suffix';
 import { IProductMySuffix } from 'app/shared/model/product-my-suffix.model';
 import { ProductMySuffixService } from 'app/entities/product-my-suffix';
 
@@ -19,14 +19,14 @@ export class OrderLineMySuffixUpdateComponent implements OnInit {
     private _orderLine: IOrderLineMySuffix;
     isSaving: boolean;
 
-    ordercusts: IOrderCustMySuffix[];
+    ordermains: IOrderMainMySuffix[];
 
     products: IProductMySuffix[];
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private orderLineService: OrderLineMySuffixService,
-        private orderCustService: OrderCustMySuffixService,
+        private orderMainService: OrderMainMySuffixService,
         private productService: ProductMySuffixService,
         private activatedRoute: ActivatedRoute
     ) {}
@@ -36,9 +36,9 @@ export class OrderLineMySuffixUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ orderLine }) => {
             this.orderLine = orderLine;
         });
-        this.orderCustService.query().subscribe(
-            (res: HttpResponse<IOrderCustMySuffix[]>) => {
-                this.ordercusts = res.body;
+        this.orderMainService.query().subscribe(
+            (res: HttpResponse<IOrderMainMySuffix[]>) => {
+                this.ordermains = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -89,7 +89,7 @@ export class OrderLineMySuffixUpdateComponent implements OnInit {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 
-    trackOrderCustById(index: number, item: IOrderCustMySuffix) {
+    trackOrderMainById(index: number, item: IOrderMainMySuffix) {
         return item.id;
     }
 

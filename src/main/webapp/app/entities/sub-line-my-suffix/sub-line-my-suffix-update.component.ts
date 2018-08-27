@@ -8,8 +8,8 @@ import { ISubLineMySuffix } from 'app/shared/model/sub-line-my-suffix.model';
 import { SubLineMySuffixService } from './sub-line-my-suffix.service';
 import { ISubscMySuffix } from 'app/shared/model/subsc-my-suffix.model';
 import { SubscMySuffixService } from 'app/entities/subsc-my-suffix';
-import { IOrderCustMySuffix } from 'app/shared/model/order-cust-my-suffix.model';
-import { OrderCustMySuffixService } from 'app/entities/order-cust-my-suffix';
+import { IOrderMainMySuffix } from 'app/shared/model/order-main-my-suffix.model';
+import { OrderMainMySuffixService } from 'app/entities/order-main-my-suffix';
 
 @Component({
     selector: 'jhi-sub-line-my-suffix-update',
@@ -21,13 +21,13 @@ export class SubLineMySuffixUpdateComponent implements OnInit {
 
     subscs: ISubscMySuffix[];
 
-    orders: IOrderCustMySuffix[];
+    orders: IOrderMainMySuffix[];
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private subLineService: SubLineMySuffixService,
         private subscService: SubscMySuffixService,
-        private orderCustService: OrderCustMySuffixService,
+        private orderMainService: OrderMainMySuffixService,
         private activatedRoute: ActivatedRoute
     ) {}
 
@@ -42,13 +42,13 @@ export class SubLineMySuffixUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.orderCustService.query({ filter: 'subline-is-null' }).subscribe(
-            (res: HttpResponse<IOrderCustMySuffix[]>) => {
+        this.orderMainService.query({ filter: 'subline-is-null' }).subscribe(
+            (res: HttpResponse<IOrderMainMySuffix[]>) => {
                 if (!this.subLine.orderId) {
                     this.orders = res.body;
                 } else {
-                    this.orderCustService.find(this.subLine.orderId).subscribe(
-                        (subRes: HttpResponse<IOrderCustMySuffix>) => {
+                    this.orderMainService.find(this.subLine.orderId).subscribe(
+                        (subRes: HttpResponse<IOrderMainMySuffix>) => {
                             this.orders = [subRes.body].concat(res.body);
                         },
                         (subRes: HttpErrorResponse) => this.onError(subRes.message)
@@ -93,7 +93,7 @@ export class SubLineMySuffixUpdateComponent implements OnInit {
         return item.id;
     }
 
-    trackOrderCustById(index: number, item: IOrderCustMySuffix) {
+    trackOrderMainById(index: number, item: IOrderMainMySuffix) {
         return item.id;
     }
     get subLine() {

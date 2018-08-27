@@ -1,0 +1,26 @@
+
+{
+    "lecopainApp": {
+        "subsc" : {
+            "home": {
+                "title": "Subscs",
+                "createLabel": "Create a new Subsc",
+                "createOrEditLabel": "Create or edit a Subsc"
+            },
+            "created": "A new Subsc is created with identifier {{ param }}",
+            "updated": "A Subsc is updated with identifier {{ param }}",
+            "deleted": "A Subsc is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Subsc {{ id }}?"
+            },
+            "detail": {
+                "title": "Subsc"
+            },
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "type": "Type",
+            "status": "Status",
+            "line": "Line"
+        }
+    }
+}

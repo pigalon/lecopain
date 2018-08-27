@@ -1,0 +1,25 @@
+
+{
+    "lecopainApp": {
+        "deliveryHistory" : {
+            "home": {
+                "title": "Delivery Histories",
+                "createLabel": "Create a new Delivery History",
+                "createOrEditLabel": "Create or edit a Delivery History"
+            },
+            "created": "A new Delivery History is created with identifier {{ param }}",
+            "updated": "A Delivery History is updated with identifier {{ param }}",
+            "deleted": "A Delivery History is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Delivery History {{ id }}?"
+            },
+            "detail": {
+                "title": "Delivery History"
+            },
+            "actionDate": "Action Date",
+            "action": "Action",
+            "reason": "Reason",
+            "delivery": "Delivery"
+        }
+    }
+}

@@ -20,7 +20,10 @@
             <th jhiSortBy="email"><span jhiTranslate="lecopainApp.customer.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="phoneNumber"><span jhiTranslate="lecopainApp.customer.phoneNumber">Phone Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="createDate"><span jhiTranslate="lecopainApp.customer.createDate">Create Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="locationId"><span jhiTranslate="lecopainApp.customer.location">Location</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="streetAddress"><span jhiTranslate="lecopainApp.customer.streetAddress">Street Address</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="postalCode"><span jhiTranslate="lecopainApp.customer.postalCode">Postal Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="city"><span jhiTranslate="lecopainApp.customer.city">City</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="country"><span jhiTranslate="lecopainApp.customer.country">Country</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -32,11 +35,10 @@
                 <td>{{customer.email}}</td>
                 <td>{{customer.phoneNumber}}</td>
                 <td>{{customer.createDate | date:'medium'}}</td>
-                <td>
-                    <div *ngIf="customer.locationId">
-                        <a [routerLink]="['../location-my-suffix', customer.locationId , 'view' ]" >{{customer.locationId}}</a>
-                    </div>
-                </td>
+                <td>{{customer.streetAddress}}</td>
+                <td>{{customer.postalCode}}</td>
+                <td>{{customer.city}}</td>
+                <td>{{customer.country}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

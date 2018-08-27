@@ -19,13 +19,13 @@
         {
             "relationshipType": "one-to-one",
             "relationshipName": "order",
-            "otherEntityName": "orderCust",
+            "otherEntityName": "orderMain",
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "orderHistory"
         }
     ],
-    "changelogDate": "20180813194250",
+    "changelogDate": "20180819080203",
     "entityTableName": "order_history",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

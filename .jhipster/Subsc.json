@@ -28,7 +28,7 @@
             "otherEntityRelationshipName": "subsc"
         }
     ],
-    "changelogDate": "20180813194248",
+    "changelogDate": "20180819080201",
     "entityTableName": "subsc",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

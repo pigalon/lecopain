@@ -20,7 +20,7 @@
             <th><span jhiTranslate="lecopainApp.orderLine.price">Price</span></th>
             <th><span jhiTranslate="lecopainApp.orderLine.reduction">Reduction</span></th>
             <th><span jhiTranslate="lecopainApp.orderLine.status">Status</span></th>
-            <th><span jhiTranslate="lecopainApp.orderLine.orderCust">Order Cust</span></th>
+            <th><span jhiTranslate="lecopainApp.orderLine.orderMain">Order Main</span></th>
             <th><span jhiTranslate="lecopainApp.orderLine.product">Product</span></th>
             <th></th>
             </tr>
@@ -34,8 +34,8 @@
                 <td>{{orderLine.reduction}}</td>
                 <td jhiTranslate="{{'lecopainApp.LineState.' + orderLine.status}}">{{orderLine.status}}</td>
                 <td>
-                    <div *ngIf="orderLine.orderCustId">
-                        <a [routerLink]="['../order-cust-my-suffix', orderLine.orderCustId , 'view' ]" >{{orderLine.orderCustId}}</a>
+                    <div *ngIf="orderLine.orderMainId">
+                        <a [routerLink]="['../order-main-my-suffix', orderLine.orderMainId , 'view' ]" >{{orderLine.orderMainId}}</a>
                     </div>
                 </td>
                 <td>

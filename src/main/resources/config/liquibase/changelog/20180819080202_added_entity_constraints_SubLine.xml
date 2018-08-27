@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity SubLine.
+    -->
+    <changeSet id="20180819080202-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="subsc_id"
+                                 baseTableName="sub_line"
+                                 constraintName="fk_sub_line_subsc_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subsc"/>
+
+        <addForeignKeyConstraint baseColumnNames="order_id"
+                                 baseTableName="sub_line"
+                                 constraintName="fk_sub_line_order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="order_main"/>
+
+    </changeSet>
+</databaseChangeLog>

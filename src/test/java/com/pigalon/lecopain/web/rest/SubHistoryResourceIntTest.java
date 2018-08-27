@@ -232,7 +232,7 @@ public class SubHistoryResourceIntTest {
         // Create the SubHistory
         SubHistoryDTO subHistoryDTO = subHistoryMapper.toDto(subHistory);
 
-        // If the entity doesn't have an ID, it will be created instead of just being updated
+        // If the entity doesn't have an ID, it will throw BadRequestAlertException 
         restSubHistoryMockMvc.perform(put("/api/sub-histories")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(subHistoryDTO)))

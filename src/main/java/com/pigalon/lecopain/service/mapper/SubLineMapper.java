@@ -8,7 +8,7 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity SubLine and its DTO SubLineDTO.
  */
-@Mapper(componentModel = "spring", uses = {SubscMapper.class, OrderCustMapper.class})
+@Mapper(componentModel = "spring", uses = {SubscMapper.class, OrderMainMapper.class})
 public interface SubLineMapper extends EntityMapper<SubLineDTO, SubLine> {
 
     @Mapping(source = "subsc.id", target = "subscId")

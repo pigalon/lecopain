@@ -4,12 +4,9 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as moment from 'moment';
 import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
-import { JhiAlertService } from 'ng-jhipster';
 
 import { ICustomerMySuffix } from 'app/shared/model/customer-my-suffix.model';
 import { CustomerMySuffixService } from './customer-my-suffix.service';
-import { ILocationMySuffix } from 'app/shared/model/location-my-suffix.model';
-import { LocationMySuffixService } from 'app/entities/location-my-suffix';
 
 @Component({
     selector: 'jhi-customer-my-suffix-update',
@@ -18,37 +15,15 @@ import { LocationMySuffixService } from 'app/entities/location-my-suffix';
 export class CustomerMySuffixUpdateComponent implements OnInit {
     private _customer: ICustomerMySuffix;
     isSaving: boolean;
-
-    locations: ILocationMySuffix[];
     createDate: string;
 
-    constructor(
-        private jhiAlertService: JhiAlertService,
-        private customerService: CustomerMySuffixService,
-        private locationService: LocationMySuffixService,
-        private activatedRoute: ActivatedRoute
-    ) {}
+    constructor(private customerService: CustomerMySuffixService, private activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ customer }) => {
             this.customer = customer;
         });
-        this.locationService.query({ filter: 'customer-is-null' }).subscribe(
-            (res: HttpResponse<ILocationMySuffix[]>) => {
-                if (!this.customer.locationId) {
-                    this.locations = res.body;
-                } else {
-                    this.locationService.find(this.customer.locationId).subscribe(
-                        (subRes: HttpResponse<ILocationMySuffix>) => {
-                            this.locations = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
     }
 
     previousState() {
@@ -76,14 +51,6 @@ export class CustomerMySuffixUpdateComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
-    }
-
-    private onError(errorMessage: string) {
-        this.jhiAlertService.error(errorMessage, null, null);
-    }
-
-    trackLocationById(index: number, item: ILocationMySuffix) {
-        return item.id;
     }
     get customer() {
         return this._customer;

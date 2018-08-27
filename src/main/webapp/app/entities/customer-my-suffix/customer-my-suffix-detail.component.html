@@ -25,11 +25,21 @@
                 <dd>
                     <span>{{customer.createDate}}</span>
                 </dd>
-                <dt><span jhiTranslate="lecopainApp.customer.location">Location</span></dt>
+                <dt><span jhiTranslate="lecopainApp.customer.streetAddress">Street Address</span></dt>
                 <dd>
-                    <div *ngIf="customer.locationId">
-                        <a [routerLink]="['/location-my-suffix', customer.locationId, 'view']">{{customer.locationId}}</a>
-                    </div>
+                    <span>{{customer.streetAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.customer.postalCode">Postal Code</span></dt>
+                <dd>
+                    <span>{{customer.postalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.customer.city">City</span></dt>
+                <dd>
+                    <span>{{customer.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.customer.country">Country</span></dt>
+                <dd>
+                    <span>{{customer.country}}</span>
                 </dd>
             </dl>
 

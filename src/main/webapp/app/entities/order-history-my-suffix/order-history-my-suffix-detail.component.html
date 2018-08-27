@@ -20,7 +20,7 @@
                 <dt><span jhiTranslate="lecopainApp.orderHistory.order">Order</span></dt>
                 <dd>
                     <div *ngIf="orderHistory.orderId">
-                        <a [routerLink]="['/order-cust-my-suffix', orderHistory.orderId, 'view']">{{orderHistory.orderId}}</a>
+                        <a [routerLink]="['/order-main-my-suffix', orderHistory.orderId, 'view']">{{orderHistory.orderId}}</a>
                     </div>
                 </dd>
             </dl>

@@ -1,0 +1,25 @@
+
+{
+    "lecopainApp": {
+        "subHistory" : {
+            "home": {
+                "title": "Sub Histories",
+                "createLabel": "Create a new Sub History",
+                "createOrEditLabel": "Create or edit a Sub History"
+            },
+            "created": "A new Sub History is created with identifier {{ param }}",
+            "updated": "A Sub History is updated with identifier {{ param }}",
+            "deleted": "A Sub History is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sub History {{ id }}?"
+            },
+            "detail": {
+                "title": "Sub History"
+            },
+            "actionDate": "Action Date",
+            "action": "Action",
+            "reason": "Reason",
+            "subscription": "Subscription"
+        }
+    }
+}

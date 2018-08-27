@@ -1,0 +1,29 @@
+{
+    "name": "Delivery",
+    "fields": [
+        {
+            "fieldName": "reference",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "delivDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "DeliveryState",
+            "fieldValues": "CREATED,IN_PROGRESS,CANCELED,DELIVERED"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180819080200",
+    "entityTableName": "delivery",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}
