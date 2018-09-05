@@ -14,7 +14,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
             // set below to true to make alerts look like toast
             alertAsToast: false,
             i18nEnabled: true,
-            defaultI18nLang: 'en'
+            defaultI18nLang: 'fr'
         }),
         InfiniteScrollModule,
         CookieModule.forRoot(),

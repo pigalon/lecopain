@@ -1,0 +1,11 @@
+{
+    "lecopainApp": {
+        "OrderActionType" : {
+            "null": "",
+            "CREATE": "CREATE",
+            "UPDATE": "UPDATE",
+            "CANCEL": "CANCEL",
+            "PAY": "PAY"
+        }
+    }
+}

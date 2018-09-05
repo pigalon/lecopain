@@ -1,0 +1,11 @@
+{
+    "lecopainApp": {
+        "OrderState" : {
+            "null": "",
+            "CREATED": "CREATED",
+            "PAID": "PAID",
+            "DELIVERED": "DELIVERED",
+            "PLANNED": "PLANNED"
+        }
+    }
+}

@@ -2,7 +2,7 @@
   "generator-jhipster": {
     "promptValues": {
       "packageName": "com.pigalon.lecopain",
-      "nativeLanguage": "en"
+      "nativeLanguage": "fr"
     },
     "jhipsterVersion": "5.2.1",
     "applicationType": "monolith",
@@ -29,9 +29,9 @@
     "testFrameworks": [],
     "jhiPrefix": "jhi",
     "enableTranslation": true,
-    "nativeLanguage": "en",
+    "nativeLanguage": "fr",
     "languages": [
-      "en"
+      "fr"
     ]
   }
 }

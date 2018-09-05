@@ -1,0 +1,24 @@
+
+{
+    "lecopainApp": {
+        "subLine" : {
+            "home": {
+                "title": "Sub Lines",
+                "createLabel": "Create a new Sub Line",
+                "createOrEditLabel": "Create or edit a Sub Line"
+            },
+            "created": "A new Sub Line is created with identifier {{ param }}",
+            "updated": "A Sub Line is updated with identifier {{ param }}",
+            "deleted": "A Sub Line is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sub Line {{ id }}?"
+            },
+            "detail": {
+                "title": "Sub Line"
+            },
+            "sReference": "S Reference",
+            "subsc": "Subsc",
+            "order": "Order"
+        }
+    }
+}

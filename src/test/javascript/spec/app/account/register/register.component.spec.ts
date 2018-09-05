@@ -52,10 +52,10 @@ describe('Component Tests', () => {
 
                     expect(service.save).toHaveBeenCalledWith({
                         password: 'password',
-                        langKey: 'en'
+                        langKey: 'fr'
                     });
                     expect(comp.success).toEqual(true);
-                    expect(comp.registerAccount.langKey).toEqual('en');
+                    expect(comp.registerAccount.langKey).toEqual('fr');
                     expect(mockTranslate.getCurrentSpy).toHaveBeenCalled();
                     expect(comp.errorUserExists).toBeNull();
                     expect(comp.errorEmailExists).toBeNull();

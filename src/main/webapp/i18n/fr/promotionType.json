@@ -1,0 +1,10 @@
+{
+    "lecopainApp": {
+        "PromotionType" : {
+            "null": "",
+            "PROMO1": "PROMO1",
+            "PROMO2": "PROMO2",
+            "PROMO3": "PROMO3"
+        }
+    }
+}
