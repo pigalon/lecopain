@@ -60,6 +60,9 @@ public class CustomerResource {
         }
 
         Customer customer = customerMapper.toEntity(customerDTO);
+        
+        customer.country("FRANCE");
+
         customer = customerRepository.save(customer);
         CustomerDTO result = customerMapper.toDto(customer);
         return ResponseEntity.created(new URI("/api/customers/" + result.getId()))

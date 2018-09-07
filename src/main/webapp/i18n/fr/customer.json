@@ -7,25 +7,25 @@
                 "createLabel": "Créer un nouveau Client",
                 "createOrEditLabel": "Créer ou modifier un Client"
             },
-            "created": "A new Customer is created with identifier {{ param }}",
-            "updated": "A Customer is updated with identifier {{ param }}",
-            "deleted": "A Customer is deleted with identifier {{ param }}",
+            "created": "Un nouveau Client est créé avec l'identifiant {{ param }}",
+            "updated": "Un Client est mis à jour avec l'identifiant {{ param }}",
+            "deleted": "Un Client est supprimé avec l'identifiant {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Customer {{ id }}?"
+                "question": "Voulez-vous supprimer le Client {{ id }}?"
             },
             "detail": {
                 "title": "Client"
             },
             "firstName": "Prénom",
-            "lastName": "Last Name",
+            "lastName": "Nom",
             "email": "Email",
-            "phoneNumber": "Phone Number",
-            "createDate": "Create Date",
-            "streetAddress": "Street Address",
-            "postalCode": "Postal Code",
-            "city": "City",
-            "country": "Country",
-            "order": "Order"
+            "phoneNumber": "Tel",
+            "createDate": "Date de création",
+            "streetAddress": "Adresse",
+            "postalCode": "Code Postal",
+            "city": "Ville",
+            "country": "Pays",
+            "order": "Commande"
         }
     }
 }
