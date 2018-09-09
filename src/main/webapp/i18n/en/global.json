@@ -32,6 +32,7 @@
             "admin": {
                 "main": "Administration",
                 "userManagement": "User management",
+                "authority": "Gestion des droits",
                 "tracker": "User tracker",
                 "metrics": "Metrics",
                 "health": "Health",

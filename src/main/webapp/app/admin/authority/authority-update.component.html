@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="myAuthorityLabel" jhiTranslate="authority.home.createOrEditLabel">
+                Create or edit an Authority
+            </h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+        
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="authority.name">Name</label>
+                    <input type="text" class="form-control" name="name" #loginInput="ngModel"
+                        [(ngModel)]="authority.name" required minlength="1" maxlength="50" pattern="^[_.@A-Za-z0-9-]*$">
+
+                    <div *ngIf="loginInput.dirty && loginInput.invalid">
+                        <small class="form-text text-danger"
+                        *ngIf="loginInput.errors.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+
+                        <small class="form-text text-danger"
+                        *ngIf="loginInput.errors.maxlength" jhiTranslate="entity.validation.maxlength"
+                        translateValues="{max: 50}">
+                            This field cannot be longer than 50 characters.
+                        </small>
+
+                        <small class="form-text text-danger"
+                        *ngIf="loginInput.errors.pattern" jhiTranslate="entity.validation.patternLogin">
+                            This field can only contain letters, digits and e-mail addresses.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span
+                    jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

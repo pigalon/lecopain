@@ -1,0 +1,19 @@
+{
+    "authority": {
+        "home": {
+            "title": "Authorities",
+            "createLabel": "Create a new authority",
+            "createOrEditLabel": "Create or edit a authority"
+        },
+        "created": "A new authority is created with identifier {{ param }}",
+        "updated": "An authority is updated with identifier {{ param }}",
+        "deleted": "An authority is deleted with identifier {{ param }}",
+        "delete": {
+            "question": "Are you sure you want to delete uauthorityser {{ name }}?"
+        },
+        "detail": {
+            "title": "Authority"
+        },
+        "name": "Nom"
+    }
+}
