@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderMain">
+            <h2><span jhiTranslate="lecopainApp.orderMain.detail.title">Order Main</span> {{orderMain.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lecopainApp.orderMain.reference">Reference</span></dt>
+                <dd>
+                    <span>{{orderMain.reference}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.orderMain.payDate">Pay Date</span></dt>
+                <dd>
+                    <span>{{orderMain.payDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.orderMain.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'lecopainApp.OrderState.' + orderMain.status}}">{{orderMain.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.orderMain.promotion">Promotion</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'lecopainApp.PromotionType.' + orderMain.promotion}}">{{orderMain.promotion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.orderMain.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="orderMain.customerId">
+                        <a [routerLink]="['/customer-my-suffix', orderMain.customerId, 'view']">{{orderMain.customerId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lecopainApp.orderMain.delivery">Delivery</span></dt>
+                <dd>
+                    <div *ngIf="orderMain.deliveryId">
+                        <a [routerLink]="['/delivery-my-suffix', orderMain.deliveryId, 'view']">{{orderMain.deliveryId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-timeline', orderMain.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

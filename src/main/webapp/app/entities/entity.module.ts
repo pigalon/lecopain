@@ -2,6 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { LecopainProductMySuffixModule } from './product-my-suffix/product-my-suffix.module';
 import { LecopainCustomerMySuffixModule } from './customer-my-suffix/customer-my-suffix.module';
+import { LecopainOrderTimelineModule } from './order-timeline/order-timeline.module';
 import { LecopainOrderMainMySuffixModule } from './order-main-my-suffix/order-main-my-suffix.module';
 import { LecopainOrderLineMySuffixModule } from './order-line-my-suffix/order-line-my-suffix.module';
 import { LecopainDeliveryMySuffixModule } from './delivery-my-suffix/delivery-my-suffix.module';
@@ -18,6 +19,7 @@ import { LecopainDeliveryHistoryMySuffixModule } from './delivery-history-my-suf
     imports: [
         LecopainProductMySuffixModule,
         LecopainCustomerMySuffixModule,
+        LecopainOrderTimelineModule,
         LecopainOrderMainMySuffixModule,
         LecopainOrderLineMySuffixModule,
         LecopainDeliveryMySuffixModule,

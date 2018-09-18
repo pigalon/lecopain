@@ -1,0 +1,86 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lecopainApp.orderMain.home.title">Order Mains</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-order-timeline" [routerLink]="['/order-timeline/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="lecopainApp.orderMain.home.createLabel">
+            Create new Order Main
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="orderMains">
+
+            <!--*ngFor="let entry of (configuration | pureFilter:filter:'prefix' | orderBy:orderProp:reverse)">-->
+
+        <span jhiTranslate="configuration.filter">Filter (by prefix)</span> <input type="text" [(ngModel)]="filter" class="form-control">
+    
+
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="reference" (click)="orderProp = 'reference'; reverse=!reverse"><span jhiTranslate="lecopainApp.orderMain.reference">Reference</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="payDate"><span jhiTranslate="lecopainApp.orderMain.payDate">Pay Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="status"><span jhiTranslate="lecopainApp.orderMain.status">Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="promotion"><span jhiTranslate="lecopainApp.orderMain.promotion">Promotion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="customerId"><span jhiTranslate="lecopainApp.orderMain.customer">Customer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="deliveryId"><span jhiTranslate="lecopainApp.orderMain.delivery">Delivery</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let orderMain of (orderMains | pureFilter:filter:'reference' | orderBy:orderProp:reverse)">
+                <td><a [routerLink]="['/order-timeline', orderMain.id, 'view' ]">{{orderMain.id}}</a></td>
+                <td>{{orderMain.reference}}</td>
+                <td>{{orderMain.payDate | date:'medium'}}</td>
+                <td jhiTranslate="{{'lecopainApp.OrderState.' + orderMain.status}}">{{orderMain.status}}</td>
+                <td jhiTranslate="{{'lecopainApp.PromotionType.' + orderMain.promotion}}">{{orderMain.promotion}}</td>
+                <td>
+                    <div *ngIf="orderMain.customerId">
+                        <a [routerLink]="['../customer-my-suffix', orderMain.customerId , 'view' ]" >{{orderMain.customerId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="orderMain.deliveryId">
+                        <a [routerLink]="['../delivery-my-suffix', orderMain.deliveryId , 'view' ]" >{{orderMain.deliveryId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/order-timeline', orderMain.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/order-timeline', orderMain.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'order-timeline/'+ orderMain.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="orderMains && orderMains.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
